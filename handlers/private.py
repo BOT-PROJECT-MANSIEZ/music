@@ -19,10 +19,10 @@ Add saya ke group untuk memulai hal seru!**
             [
                 [
                     InlineKeyboardButton(
-                        "💬 Group", url="https://t.me/GroupCariTemanChat"
+                        "💬 Group", url="https://t.me/KlikDisiniUntukBergabung"
                     ),
                     InlineKeyboardButton(
-                        "🔊 Channel", url="t.me/KumpulanBot_Hiburan"
+                        "🔊 Channel", url="t.me/PoocongOnlen"
                     )
                 ],[ 
                     InlineKeyboardButton(
@@ -40,7 +40,7 @@ async def gstart(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "🔊 Channel", url="t.me/KumpulanBot_Hiburan")
+                        "🔊 Channel", url="t.me/PoocongOnlen")
                 ]
             ]
         )
