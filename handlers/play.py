@@ -107,7 +107,7 @@ async def play(_, message: Message):
                 [
                     InlineKeyboardButton(
                             text="🎧 Channel 🎧",
-                            url=f"t.me/KumpulanBot_Hiburan"),
+                            url=f"t.me/PoocongOnlen"),
                         InlineKeyboardButton(
                         "❌ Tutup ❌", callback_data="close"
                     )
@@ -136,7 +136,7 @@ async def play(_, message: Message):
                     [
                         InlineKeyboardButton(
                             text="🎧 Channel 🎧",
-                            url=f"t.me/KumpulanBot_Hiburan"),
+                            url=f"t.me/PoocongOnlen"),
                         InlineKeyboardButton(
                         "❌ Tutup ❌", callback_data="close"
                     )
@@ -167,7 +167,7 @@ async def play(_, message: Message):
                         [
                             InlineKeyboardButton(
                             text="🎧 Channel 🎧",
-                            url=f"t.me/KumpulanBot_Hiburan"),
+                            url=f"t.me/PoocongOnlen"),
                             InlineKeyboardButton(
                             "❌ Tutup ❌", callback_data="close"
                           )
@@ -185,7 +185,7 @@ async def play(_, message: Message):
                         [
                             InlineKeyboardButton(
                             text="🎧 Channel 🎧",
-                            url=f"t.me/KumpulanBot_Hiburan"),
+                            url=f"t.me/PoocongOnlen"),
                             InlineKeyboardButton(
                             "❌ Tutup ❌", callback_data="close"
                           )
@@ -234,7 +234,7 @@ async def play(_, message: Message):
                     [
                         InlineKeyboardButton(
                             text="🎧 Channel 🎧",
-                            url=f"t.me/KumpulanBot_Hiburan"),
+                            url=f"t.me/PoocongOnlen"),
                         InlineKeyboardButton(
                         "❌ Tutup ❌", callback_data="close"
                     )
