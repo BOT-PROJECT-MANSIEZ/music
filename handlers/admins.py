@@ -102,7 +102,7 @@ async def cara(_, message: Message):
             [
                 [
                     InlineKeyboardButton(                  
-                       "Channel",url="https://t.me/KumpulanBot_Hiburan/5")
+                       "Channel",url="https://t.me/PoocongOnlen")
                    
                 ]
             ]
