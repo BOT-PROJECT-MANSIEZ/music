@@ -1,0 +1,39 @@
+{
+  "name": "JEMBUT",
+  "description": "JUST FOR FUN :).",
+  "keywords": ["music", "voicechat", "telegram"],
+  "repository": "https://github.com/otakudesuShoko",
+  "stack": "container",
+  "env": {
+    "SESSION_NAME": {
+      "description": "nasi goreng",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Pecel lele",
+      "required": true
+    },
+    "BOT_NAME": {
+      "description": "Coto Makassar.",
+      "required": true,
+      "value": "KONTOL"
+    },
+    "API_ID": {
+      "description": "Soto Lamongan",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "App hash from my.telegram.org/apps",
+      "required": true
+    },
+    "SUDO_USERS": {
+      "description": "List of user IDs counted as admin everywhere (separated by space).",
+      "required": true
+    },
+    "DURATION_LIMIT": {
+      "description": "Max audio duration limit for downloads (minutes).",
+      "required": true,
+      "value": "10"
+    }
+  }
+}
