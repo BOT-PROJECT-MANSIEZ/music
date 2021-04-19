@@ -19,7 +19,7 @@ Add saya ke group untuk memulai hal seru!**
             [
                 [
                     InlineKeyboardButton(
-                        "💬 Group", url="https://t.me/Gasonmusic"
+                        "💬 Group", url="https://t.me/KlikDisiniUntukBergabung"
                     ),
                     InlineKeyboardButton(
                         "Creator🤖", url="https://t.me/Pocongonlen"
