@@ -19,14 +19,14 @@ Add saya ke group untuk memulai hal seru!**
             [
                 [
                     InlineKeyboardButton(
-                        "💬 Group", url="https://t.me/KlikDisiniUntukBergabung"
+                        "💬 Group", url="https://t.me/Gasonmusic"
                     ),
                     InlineKeyboardButton(
-                        "Bantu Kami🎁", url="https://link.dana.id/qr/3777ro50"
+                        "Creator🤖", url="https://t.me/Pocongonlen"
                     )
                 ],[ 
                     InlineKeyboardButton(
-                        "➕ Add saya ke group ➕", url="https://t.me/MusicIndonesiaBot?startgroup=true"
+                        "🎁 DONATE 🎁", url="https://link.dana.id/qr/3777ro50"
                     )]
             ]
         ),
@@ -35,7 +35,7 @@ Add saya ke group untuk memulai hal seru!**
 
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
-      await message.reply_text("""**Saya sudah siap, klik /cara untuk melihat penggunaan ✅**""",
+      await message.reply_text("""**Saya sudah siap, ketik / cara untuk melihat penggunaan ✅**""",
       reply_markup=InlineKeyboardMarkup(
             [
                 [
