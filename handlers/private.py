@@ -22,7 +22,7 @@ Add saya ke group untuk memulai hal seru!**
                         "💬 Group", url="https://t.me/KlikDisiniUntukBergabung"
                     ),
                     InlineKeyboardButton(
-                        "🔊 Channel", url="t.me/PoocongOnlen"
+                        "Bantu Kami🎁", url="https://link.dana.id/qr/3777ro50"
                     )
                 ],[ 
                     InlineKeyboardButton(
