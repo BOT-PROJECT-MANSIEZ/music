@@ -19,7 +19,7 @@ Add saya ke group untuk memulai hal seru!**
             [
                 [
                     InlineKeyboardButton(
-                        "💬 Group", url="https://t.me/Gasonmusic"
+                        "💬 Group", url="https://t.me/KlikDisiniUntukBergabung"
                     ),
                     InlineKeyboardButton(
                         "Bantu Kami🎁", url="https://link.dana.id/qr/3777ro50"
