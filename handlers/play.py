@@ -21,7 +21,7 @@ from helpers.decorators import errors
 from helpers.errors import DurationLimitError
 from helpers.gets import get_url, get_file_name
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
+from datetime import datetime
 import os
 import aiohttp
 import aiofiles
@@ -92,6 +92,15 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     os.remove("background.png")
 
 
+    
+@Client.on_message(command("ping") & other_filters)
+async def ping(_, message: Message):
+    start = datetime.now()
+    tauk = await message.reply('Pong!')
+    end = datetime.now()
+    m_s = (end - start).microseconds/ 1000
+    await tauk.edit(f'**Pong! 🎧**\n `{m_s} ms`')
+    
 
 
 @Client.on_message(command("play") & other_filters)
