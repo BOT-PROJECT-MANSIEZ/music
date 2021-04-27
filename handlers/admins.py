@@ -82,7 +82,7 @@ async def skip(_, message: Message):
         await message.reply_text("➡️ Lewati sebuah lagu!")
 
         
-@Client.on_message(filters.command("reload"))
+@Client.on_message(filters.command('reload'))
 async def reload(client, message):
     global a
     admins = await client.get_chat_members(message.chat.id, filter="administrators")
