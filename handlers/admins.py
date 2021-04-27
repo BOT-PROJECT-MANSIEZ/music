@@ -83,7 +83,7 @@ async def skip(_, message: Message):
 
         
 @Client.on_message(filters.command('reload'))
-async def reload(client, message):
+async def update_admin(client, message):
     global a
     admins = await client.get_chat_members(message.chat.id, filter="administrators")
     new_ads = [ ]
