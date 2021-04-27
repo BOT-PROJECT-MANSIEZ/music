@@ -74,8 +74,25 @@ async def skip(_, message: Message):
             )
 
         await message.reply_text("➡️ Lewati sebuah lagu!")
+
         
+@Client.on_message(filters.command('reload'))
+async def update_admin(client, message):
+    global a
+    admins = await client.get_chat_members(message.chat.id, filter="administrators")
+    new_ads = [ ]
+    for u in admins:
+        new_ads.append(u.user.id)
+        a[message.chat.id] = new_ads
+        await message.reply_text('✅ Daftar admin berhasil diperbarui di **{}**'.format(message.chat.title))
         
+@Client.on_message(
+    filters.command("clear")
+)    
+@errors
+async def clear(client, message: Message):
+    set(message.chat.id, [member.user for member in await message.chat.get_members(filter="administrators")])
+    await message.reply_text("**✅ Admin list =** Cache admin berhasil disegarkan!")
    
 @Client.on_message(command("cara") & other_filters)
 @errors
