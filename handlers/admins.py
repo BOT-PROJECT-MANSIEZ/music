@@ -89,8 +89,8 @@ async def update_admin(client, message):
     new_ads = [ ]
     for u in admins:
         new_ads.append(u.user.id)
-        a[message.chat.id] = new_ads
-        await message.reply_text('✅ Daftar admin berhasil diperbarui di **{}**'.format(message.chat.title))
+    a[message.chat.id] = new_ads
+    await message.reply_text('✅ Daftar admin berhasil diperbarui di **{}**'.format(message.chat.title))
         
 @Client.on_message(
     filters.command("clear")
