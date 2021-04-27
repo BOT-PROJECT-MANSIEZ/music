@@ -13,6 +13,7 @@ from config import BOT_NAME as BN
 from helpers.filters import command, other_filters
 from helpers.decorators import errors, authorized_users_only
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from config import que, admins as a
 
 
 @Client.on_message(command("jeda") & other_filters)
