@@ -8,7 +8,11 @@ from callsmusic import callsmusic, queues
 from os import path
 import requests
 import aiohttp
+import wget
 import youtube_dl
+import json
+from Python_ARQ import ARQ
+import asyncio
 from youtube_search import YoutubeSearch
 
 
@@ -274,3 +278,114 @@ async def play(_, message: Message):
     )
         os.remove("final.png")
         return await lel.delete()
+
+#---------------------------------DEEZER------------------------------------------------------------------
+@Client.on_message(
+    filters.command("dplay")
+    & filters.group
+    & ~ filters.edited
+)
+async def deezer(client: Client, message_: Message):
+    requested_by = message_.from_user.first_name
+    text = message_.text.split(" ", 1)
+    queryy = text[1]
+    res = await message_.reply_text(f"🔎 **Mencari** {queryy} di Deezer")
+    try:
+        arq = ARQ("https://thearq.tech")
+        r = await arq.deezer(query=queryy, limit=1)
+        title = r[0]["title"]
+        duration = int(r[0]["duration"])
+        thumbnail = r[0]["thumbnail"]
+        artist = r[0]["artist"]
+        url = r[0]["url"]
+    except:
+        await res.edit(
+            "❌ Lagu tidak ditemukan.\n\nMohon cari konten musik yang lain."
+        )
+        is_playing = False
+        return
+    file_path= await convert(wget.download(url))
+    await res.edit("Generating Thumbnail")
+    await generate_cover_square(requested_by, title, artist, duration, thumbnail)
+    if message_.chat.id in tgcalls.pytgcalls.active_calls:
+        await res.edit("adding in queue")
+        position = sira.add(message_.chat.id, file_path)
+        await res.edit_text(f"#⃣ permintaanmu ditambahkan ke **playlist** pada posisi {position}!")
+    else:
+        await res.edit_text("▶️ **Memainkan** musik di sini request by {} via Deezer 🎵")
+        tgcalls.pytgcalls.join_group_call(message_.chat.id, file_path)
+    await res.delete()
+    m = await client.send_photo(
+        chat_id=message_.chat.id,
+        photo="final.png",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                 [
+                        InlineKeyboardButton(
+                            text="🎧 Channel 🎧",
+                            url=f"t.me/AnnabelleUpdates"),
+                        InlineKeyboardButton(
+                        "❌ Tutup ❌", callback_data="close")
+                 ]
+            ]
+       ),
+        caption=f"▶️ **Memainkan** [{title}]({url}) Via [Deezer](https://www.deezer.com)."
+    ) 
+    os.remove("final.png")
+# -----------------------------------------------------Jiosaavn-----------------------------------------------------------------
+@Client.on_message(
+    filters.command("jplay")
+    & filters.group
+    & ~ filters.edited
+)
+async def jiosaavn(client: Client, message_: Message):
+    requested_by = message_.from_user.first_name
+    chat_id=message_.chat.id
+    text = message_.text.split(" ", 1)
+    query = text[1]
+    res = await message_.reply_text(f"🔎 **Mencari** {query} di JioSaavn")
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(
+                f"https://jiosaavnapi.bhadoo.uk/result/?query={query}"
+            ) as resp:
+                r = json.loads(await resp.text())
+        sname = r[0]["song"]
+        slink = r[0]["media_url"]
+        ssingers = r[0]["singers"]
+        sthumb = r[0]["image"]
+        sduration = int(r[0]["duration"])
+    except Exception as e:
+        await res.edit(
+            "❌ Lagu tidak ditemukan.\n\nMohon cari konten musik yang lain."
+        )
+        print(str(e))
+        is_playing = False
+        return
+    file_path= await convert(wget.download(slink))
+    if message_.chat.id in tgcalls.pytgcalls.active_calls:
+        position = sira.add(message_.chat.id, file_path)
+        await res.edit_text(f"#⃣ permintaanmu ditambahkan ke **playlist** pada posisi {position}!")
+    else:
+        await res.edit_text("▶️ **Memainkan** musik di sini request by {} via JioSaavn 🎵")
+        tgcalls.pytgcalls.join_group_call(message_.chat.id, file_path)
+    await res.edit("Generating Thumbnail.")
+    await generate_cover_square(requested_by, sname, ssingers, sduration, sthumb)
+    await res.delete()
+    m = await client.send_photo(
+        chat_id=message_.chat.id,
+        caption=f"▶️ **Memainkan** {sname} Via [JioSaavn](https://www.jiosaavn.com/)",
+        photo="final.png",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                 [
+                        InlineKeyboardButton(
+                            text="🎧 Channel 🎧",
+                            url=f"t.me/AnnabelleUpdates"),
+                        InlineKeyboardButton(
+                        "❌ Tutup ❌", callback_data="close")
+                 ]
+            ]
+       )
+    )
+    os.remove("final.png")
