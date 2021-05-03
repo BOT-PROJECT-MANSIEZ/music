@@ -22,7 +22,7 @@ Add saya ke group untuk memulai hal seru!**
                         "💬 Group", url="https://t.me/KlikDisiniUntukBergabung"
                     ),
                     InlineKeyboardButton(
-                        "Creator🤖", url="https://t.me/Pocongonlen"
+                        "Pemilik🤖", url="https://t.me/Pocongonlen"
                     )
                 ],[ 
                     InlineKeyboardButton(
