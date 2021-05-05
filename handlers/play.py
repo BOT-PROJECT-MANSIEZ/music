@@ -324,7 +324,7 @@ async def deezer(client: Client, message_: Message):
                  [
                         InlineKeyboardButton(
                             text="🎧 Channel 🎧",
-                            url=f"t.me/AnnabelleUpdates"),
+                            url=f"t.me/PoocongOnlen"),
                         InlineKeyboardButton(
                         "❌ Tutup ❌", callback_data="close")
                  ]
@@ -382,7 +382,7 @@ async def jiosaavn(client: Client, message_: Message):
                  [
                         InlineKeyboardButton(
                             text="🎧 Channel 🎧",
-                            url=f"t.me/AnnabelleUpdates"),
+                            url=f"t.me/PoocongOnlen"),
                         InlineKeyboardButton(
                         "❌ Tutup ❌", callback_data="close")
                  ]
